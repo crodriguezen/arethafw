@@ -54,12 +54,12 @@ $response = array(
 );
 
 $fields = array(
-  array("name" => "string_field" 	 , "mandatory" => "Y", "type" => "String"),
-  array("name" => "string_field2" 	, "mandatory" => "N", "type" => "String", "min_length" => 7),
-  array("name" => "phone_field" 	 , "mandatory" => "Y", "type" => "Phone" , "min_length" => 7, "max_length" => 13),
-  array("name" => "optional_field" , "mandatory" => "N", "type" => ""),
-  array("name" => "email_field"    , "mandatory" => "N", "type" => "Email"),
-  array("name" => "zipcode_field"  , "mandatory" => "N", "type" => "Zipcode", "min_length" => 5, "max_length" => 5)
+  array("name" => "string_field" 	, "mandatory" => "Y", "type" => "String"),
+  array("name" => "string_field2" , "mandatory" => "N", "type" => "String", "min_length" => 7),
+  array("name" => "phone_field" 	, "mandatory" => "Y", "type" => "Phone" , "min_length" => 7, "max_length" => 13),
+  array("name" => "optional_field", "mandatory" => "N", "type" => ""),
+  array("name" => "email_field"   , "mandatory" => "N", "type" => "Email"),
+  array("name" => "zipcode_field" , "mandatory" => "N", "type" => "Zipcode", "min_length" => 5, "max_length" => 5)
 );
 
 $validate = Aretha::validateParams($fields, "", "");
@@ -74,7 +74,7 @@ $response['type']      = $validate['type']; // Type errors
 if ($response['fieldok']) {
   // All OK - Do something with data
 } else {
-  // Something its wrong - Freedback the user
+  // Something its wrong - Feedback the user
 }
 
 header("Content-type:application/json");
