@@ -32,21 +32,31 @@ include 'arethafw/Aretha.php';
 </details>
 
 <details>
-  <summary><strong>Check if session is granted</strong></summary>
-  <p>
-  <code>
-  Aretha::sessionGranted()
-  </code>
-  </p>
+<summary><strong>Check if session is granted</strong></summary>
+<p>
+<pre>
+Aretha::sessionGranted();
+</pre>
+</p>
+<p>
+<strong>Example</strong>
+<pre>
+if (Aretha::sessionGranted()) {
+  // Access granted
+} else {
+  // Access denied
+}
+</pre>
+</p>
 </details>
 
 <details>
-  <summary><strong>Display all errors</strong></summary>
-  <p>
-  <code>
-  Aretha::allErrors();
-  </code>
-  </p>
+<summary><strong>Display all errors</strong></summary>
+<p>
+<pre>
+Aretha::allErrors();
+</pre>
+</p>
 </details>
 
 
