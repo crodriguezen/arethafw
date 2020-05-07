@@ -36,9 +36,12 @@ Add CSS and JavaScript to your Views.
 <script src="arethafw/js/aretha.js"></script>
 ```
 
-## Common functions
+## Web forms validation
 
-**Validate Web forms (from ajax request - json response)**
+### From ajax request with json response
+
+**Server side script:**
+
 ```php
 include '../arethafw/Aretha.php';
 
@@ -52,7 +55,7 @@ $response = array(
 
 $fields = array(
   array("name" => "string_field" 	 , "mandatory" => "Y", "type" => "String"),
-  array("name" => "string_field" 	 , "mandatory" => "N", "type" => "String", "min_length" => 7),
+  array("name" => "string_field2" 	, "mandatory" => "N", "type" => "String", "min_length" => 7),
   array("name" => "phone_field" 	 , "mandatory" => "Y", "type" => "Phone" , "min_length" => 7, "max_length" => 13),
   array("name" => "optional_field" , "mandatory" => "N", "type" => ""),
   array("name" => "email_field"    , "mandatory" => "N", "type" => "Email"),
@@ -77,6 +80,22 @@ if ($response['fieldok']) {
 header("Content-type:application/json");
 echo json_encode($response);
 ```
+
+**Response example:**
+
+```json
+{
+  "status":"fail",
+  "code":"P002",
+  "message":"Parámetros obligatorios incompletos",
+  "mandatory":["string_field","string_field2"],
+  "fieldok":false,
+  "range":[],
+  "type":[]
+}
+```
+
+## Common functions
 
 <details>
 <summary><strong>Session start</strong></summary>
