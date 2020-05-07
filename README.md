@@ -16,19 +16,26 @@ Some of the main features includes:
 
 ## Initialization
 
+<strong>Server Side</strong>
 ```php
 include 'arethafw/Aretha.php';
+```
+
+<strong>Client Side (HTML)</strong>
+```html
+<link rel="stylesheet" href="arethafw/css/aretha.css">
+<script src="arethafw/js/aretha.js"></script>
 ```
 
 ## Common functions
 
 <details>
-  <summary><strong>Session start</strong></summary>
-  <p>
-  <code>
-  Aretha::sessionStart();
-  </code>
-  </p>
+<summary><strong>Session start</strong></summary>
+<p>
+<pre>
+Aretha::sessionStart();
+</pre>
+</p>
 </details>
 
 <details>
@@ -45,6 +52,7 @@ if (Aretha::sessionGranted()) {
   // Access granted
 } else {
   // Access denied
+  header('Location: login.php');
 }
 </pre>
 </p>
