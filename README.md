@@ -1,4 +1,4 @@
-# arethafw
+# ArethaFW
 A PHP Library for common Web applications.
 
 Although there are various frameworks focused on the correct use of patterns, methodologies, and any good practice that speeds up the development of a Web application, the reality is that you always end up carrying out a series of repetitive tasks between different projects. Additionally, in legacy projects, there is the task of migrating existing functionalities to the different frameworks to make the functions compatible, which is why to reduce our development time required a non-restrictive solution.
