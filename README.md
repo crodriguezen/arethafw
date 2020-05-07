@@ -81,7 +81,7 @@ header("Content-type:application/json");
 echo json_encode($response);
 ```
 
-**Response example:**
+**Response example (mandatory error):**
 
 ```json
 {
@@ -92,6 +92,28 @@ echo json_encode($response);
   "fieldok":false,
   "range":[],
   "type":[]
+}
+```
+**Response example (type error):**
+
+```json
+{
+  "status":"fail",
+  "code":"P003",
+  "message":"Parámetros con el tipo incorrecto.",
+  "mandatory":["email_field"],
+  "fieldok":false,
+  "range":[],
+  "type":[
+    {
+      "name":"email_field",
+      "detail":"[E-mail Min: 5]"
+    },
+    {
+      "name":"email_field",
+      "detail":"[E-mail must have an @]"
+    }
+  ]
 }
 ```
 
