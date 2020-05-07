@@ -12,3 +12,21 @@ Some of the main features includes:
 * Session handling
 * User access handling
 
+- - - -
+
+## Initialization
+
+```php
+'include 'arethafw/Aretha.php';
+```
+
+## Common functions
+
+<details>
+  <summary><strong>Session start</strong></summary>
+  <p>
+  <code>
+  Aretha::sessionStart();
+  </code>
+  </p>
+</details>
