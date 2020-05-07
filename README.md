@@ -17,7 +17,7 @@ Some of the main features includes:
 ## Initialization
 
 ```php
-'include 'arethafw/Aretha.php';
+include 'arethafw/Aretha.php';
 ```
 
 ## Common functions
@@ -30,3 +30,23 @@ Some of the main features includes:
   </code>
   </p>
 </details>
+
+<details>
+  <summary><strong>Check if session is granted</strong></summary>
+  <p>
+  <code>
+  Aretha::sessionGranted()
+  </code>
+  </p>
+</details>
+
+<details>
+  <summary><strong>Display all errors</strong></summary>
+  <p>
+  <code>
+  Aretha::allErrors();
+  </code>
+  </p>
+</details>
+
+
