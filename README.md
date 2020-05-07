@@ -16,14 +16,17 @@ Some of the main features includes:
 
 ## Initialization
 
-<strong>Server Side</strong>
+***Server Side***
+
+Includes the Aretha.php file
 ```php
 include 'arethafw/Aretha.php';
 ```
 
-<strong>Client Side (HTML)</strong>
+**Client Side (HTML)**
 
-Aretha adds some functionality on the client side. 
+Aretha adds some functionality on the client side.
+<br/>
 Add CSS and JavaScript to your Views.
 
 ```html
