@@ -22,6 +22,10 @@ include 'arethafw/Aretha.php';
 ```
 
 <strong>Client Side (HTML)</strong>
+
+Aretha adds some functionality on the client side. 
+Add CSS and JavaScript to your Views.
+
 ```html
 <link rel="stylesheet" href="arethafw/css/aretha.css">
 <script src="arethafw/js/aretha.js"></script>
