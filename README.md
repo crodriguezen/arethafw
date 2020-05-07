@@ -39,6 +39,52 @@ Add CSS and JavaScript to your Views.
 ## Common functions
 
 <details>
+<summary><strong>Validate Web forms (from ajax request)</strong></summary>
+<p>
+<strong>Server side</strong>
+<pre>
+<?php
+include '../arethafw/Aretha.php';
+
+$response = array(
+'status' => "fail", 
+'code' => "001",
+'message' => "",
+'mandatory' => array(),
+'fieldok' => false
+);
+
+$fields = array(
+array("name" => "string_field" 		 , "mandatory" => "Y", "type" => "String"),
+array("name" => "string_field" 		 , "mandatory" => "N", "type" => "String", "min_length" => 7),
+array("name" => "phone_field" 		 , "mandatory" => "Y", "type" => "Phone" , "min_length" => 7, "max_length" => 13),
+array("name" => "optional_field"   , "mandatory" => "N", "type" => ""),
+array("name" => "email_field" 		 , "mandatory" => "N", "type" => "Email"),
+array("name" => "zipcode_field" 	 , "mandatory" => "N", "type" => "Zipcode", "min_length" => 5, "max_length" => 5)
+);
+
+$validate = Aretha::validateParams($fields, "", "");
+$response['status']    = $validate['status'];
+$response['code']      = $validate['code'];
+$response['message']   = $validate['message'];
+$response['mandatory'] = $validate['mandatory'];
+$response['fieldok']   = $validate['fieldok']; // Found errors
+$response['range']     = $validate['range']; // Range errors
+$response['type']      = $validate['type']; // Type errors
+
+if ($response['fieldok']) {
+  // All OK
+} else {
+  // Something is not OK
+}
+header("Content-type:application/json");
+echo json_encode($response);
+?>
+</pre>
+</p>
+</details>
+
+<details>
 <summary><strong>Session start</strong></summary>
 <p>
 <pre>
