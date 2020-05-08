@@ -157,4 +157,15 @@ Aretha::allErrors();
 </p>
 </details>
 
+<details>
+<summary><strong>Load PlugIn</strong></summary>
+<p>
+<pre>
+Aretha::loadPlugin('name');
+</pre>
+<strong>Note:</strong> Plugin invocation must be at the end of the body of HTML Document
+</p>
+</details>
+
+
 
