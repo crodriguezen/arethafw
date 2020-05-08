@@ -46,20 +46,35 @@ spl_autoload_register(
 			"../../plainObjects/",
 			"../../../plainObjects/",
 
-			"arethafw/php/bootstrap/",
-			"../arethafw/php/bootstrap/",
-			"../../arethafw/php/bootstrap/",
-			"../../../arethafw/php/bootstrap/",
+			ARETHA_DIRNAME . "/lib/",
+			"../" . ARETHA_DIRNAME . "/lib/",
+			"../../" . ARETHA_DIRNAME . "/lib/",
+			"../../../" . ARETHA_DIRNAME . "/lib/",
 
-			"arethafw/php/util/",
-			"../arethafw/php/util/",
-			"../../arethafw/php/util/",
-			"../../../arethafw/php/util/",
+			ARETHA_DIRNAME . "/plugins/",
+			"../" . ARETHA_DIRNAME . "/plugins/",
+			"../../" . ARETHA_DIRNAME . "/plugins/",
+			"../../../" . ARETHA_DIRNAME . "/plugins/",
 
-			"arethafw/dao/",
-			"../arethafw/dao/",
-			"../../arethafw/dao/",
-			"../../../arethafw/dao/"
+			ARETHA_DIRNAME . "/vplugins/",
+			"../" . ARETHA_DIRNAME . "/vplugins/",
+			"../../" . ARETHA_DIRNAME . "/vplugins/",
+			"../../../" . ARETHA_DIRNAME . "/vplugins/",
+
+			ARETHA_DIRNAME . "/php/bootstrap/",
+			"../" . ARETHA_DIRNAME . "/php/bootstrap/",
+			"../../" . ARETHA_DIRNAME . "/php/bootstrap/",
+			"../../../" . ARETHA_DIRNAME . "/php/bootstrap/",
+
+			ARETHA_DIRNAME . "/php/util/",
+			"../" . ARETHA_DIRNAME . "/php/util/",
+			"../../" . ARETHA_DIRNAME . "/php/util/",
+			"../../../" . ARETHA_DIRNAME . "/php/util/",
+
+			ARETHA_DIRNAME . "/dao/",
+			"../" . ARETHA_DIRNAME . "/dao/",
+			"../../" . ARETHA_DIRNAME . "/dao/",
+			"../../../" . ARETHA_DIRNAME . "/dao/"
 		);
 
 		$cpaths = count($arethaPaths);
@@ -153,7 +168,7 @@ class Aretha {
 	private static $isIniFile          = false;
 	private static $isDatabaseIniFile  = true;
 	private static $confAretha         = null;
-	private static $plainObjectPath    = "";
+	private static $plainObjectPath    = "plainObjects";
 	private static $entitiesPath       = "";
 
 	private static $aretha_global_path = "";
@@ -210,7 +225,35 @@ class Aretha {
 	    Aretha::$aretha_global_path = dirname(__DIR__) . "/arethafw/";
     }
 
-    public static function sessionStart() {
+    //===================================================================================================
+	//===================================================================================================	
+	// Internationalization
+	//===================================================================================================
+	//===================================================================================================
+
+    
+	//===================================================================================================
+	//===================================================================================================	
+	// PlugIns
+	//===================================================================================================
+	//===================================================================================================
+
+    public static function loadPlugin($name, $parameters = null) {
+    	$pluginPath = ARETHA_DIRNAME . "/plugins/" . $name . "/" . $name . ".inc.php";
+    	if (is_file($pluginPath)) {
+    		include_once $pluginPath;
+    		Aretha::import("lib.AFPlugin");
+    		aretha\lib\AFPlugin::init($afPluginConf);
+    	}
+    }
+
+	//===================================================================================================
+	//===================================================================================================	
+	// Session Helpers
+	//===================================================================================================
+	//===================================================================================================	
+	
+	public static function sessionStart() {
     	if (session_status() == PHP_SESSION_NONE) {
 		    session_start();
 		}
@@ -226,16 +269,6 @@ class Aretha {
 		}
 		return false;
     }
-
-	//===================================================================================================
-	//===================================================================================================	
-	// HTML Form Helpers
-	//===================================================================================================
-	//===================================================================================================	
-	public static function endsWith($haystack, $needle) {
-		return substr($haystack, -strlen($needle)) === $needle;
-	}
-
 
 	public static function generateToken($length, $upper = false){
 	     $token    = "";
@@ -591,6 +624,10 @@ class Aretha {
 	    return $d && $d->format($format) == $date;
 	}
 
+	public static function endsWith($haystack, $needle) {
+		return substr($haystack, -strlen($needle)) === $needle;
+	}
+
 	//===================================================================================================
 	//===================================================================================================
 	// Import Handlers
@@ -613,7 +650,9 @@ class Aretha {
 		$targetClass = "UndefinedClassDummyName";
 		$mid_path    = str_replace (".", "/", $package);
 		$path        = $mid_path . ".php";
+		$pathFW      = ARETHA_DIRNAME . "/" . $mid_path . ".php";
 		$pathClass   = $mid_path . ".class.php";
+		$pathClassFW = ARETHA_DIRNAME . "/" . $mid_path . ".class.php";
 		$arrPath     = explode(".", $package);
 		$countPath   = count($arrPath);
 
@@ -622,23 +661,32 @@ class Aretha {
 			$targetClass = $arrPath[$countPath-1];
 		} 
 
+		if (is_file($pathFW)) {
+			$thePath     = $pathFW;
+			$targetClass = $arrPath[$countPath-1];
+		} 
+
 		if (is_file($pathClass)) {
 			$thePath     = $pathClass;
-			$targetClass = $arrPath[$countPath-2];
+			$targetClass = $arrPath[$countPath-1];
+		}
+
+		if (is_file($pathClassFW)) {
+			$thePath     = $pathClassFW;
+			$targetClass = $arrPath[$countPath-1];
 		}
 
 		if ($thePath != "") {
 			if (Aretha::isPlainObject($thePath)) {
 				$targetClass .= "PO";
-			} else {
-				$targetClass = "UndefinedClassDummyName";
 			}
 
 			if (!in_array($targetClass, get_declared_classes()) ) {
 				require_once $thePath;
+			} else {
+				
 			}
 		}
-		
 	}
 
 	/**

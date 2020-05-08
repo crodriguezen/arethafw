@@ -1,39 +1,55 @@
 <?php
+namespace aretha\lib;
+
 class AFPlugin {
 
-	private $jsFiles = array();
-	private $cssFiles = array();
+	private static $jsFiles = array();
+	private static $cssFiles = array();
 
-	public function addJS($js) {
-		$this->jsFiles[] = $js;
+	public static function addJS($js) {
+		array_push(AFPlugin::jsFiles, $js);
 	}
 
-	public function addCSS($css) {
-		$this->cssFiles[] = $css;
+	public static function addCSS($css) {
+		array_push(AFPlugin::cssFiles, $css);
 	}
 
-	public function init($json) {
+	public static function init($json) {
 		$config = json_decode($json);
+		$scripts = "";
+		$links = "";
 
-		$script  = '<script type="text/javascript" id="af-plugins">';
+		$script  = "";
+		$script .= "<!-- ArethaFW PlugIns -->" . "\n";
+		$script .= '<script type="text/javascript" id="af-plugins">' . "\n";
 		if (count($config->javascript) > 0) {
-			$script .= 'loadScripts(';
-			$script .= '	[';
-			foreach ($config->javascript as $file) {
-				$scripts .= '	"' . $file . '",';
-			}
-			$script .= substr($scripts, 0, strlen($scripts) -1);
-			$script .= '	],';
-			$script .= '	function() { console.log("ArethaFW Plugins Loaded!"); }';
-			$script .= ');';
-		}
-		$script .= '</script>';
-
-		foreach ($config->css as $file) {
 			
+			foreach ($config->javascript as $file) {
+				$scripts .= '"' . ARETHA_DIRNAME . "/plugins/" . $config->name . "/js/" . $file . '", ';
+			}
+
+			$script .= 'aretha().loadScripts(' . "\n";
+			$script .= '	[' . "\n";
+			$script .= substr($scripts, 0, -2) . "\n";
+			$script .= '	],' . "\n";
+			$script .= '	function() { console.log("ArethaFW Plugins Loaded!"); }' . "\n";
+			$script .= ');' . "\n" . "\n";
+		}
+		
+
+		if (count($config->css) > 0) {
+			
+			foreach ($config->css as $file) {
+				$links .= '"' . ARETHA_DIRNAME . "/plugins/" . $config->name . "/css/" . $file . '", ';
+			}
+
+			$script .= 'aretha().loadCSS(' . "\n";
+			$script .= substr($links, 0, -2)  . "\n";
+			$script .= ');' . "\n" . "\n";
 		}
 
-
+		$script .= '</script>' . "\n" . "\n";
+		echo $script;
 	}
 
 
