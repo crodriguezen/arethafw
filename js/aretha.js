@@ -382,6 +382,51 @@ const aretha = (q) => ({
 
 	interval: (f, m) => {
 		window.setInterval(f, m);
+	},
+
+	addScript: (f) => {
+		var s = document.createElement( 'script' );
+  		s.setAttribute('src', f );
+  		document.body.appendChild(s);
+	},
+
+	loadScripts: (a, c, h = false) => {
+	    var loader = function(src,handler) {
+	        var s = document.createElement("script");
+	        s.src = src;
+	        s.onload = s.onreadystatechange = function(){
+	            s.onreadystatechange = s.onload = null;
+	            handler();
+	        }
+
+	        if (h) {
+	        	var head = document.getElementsByTagName("head")[0];
+	        	head.appendChild(s);
+	        } else {
+	        	document.body.appendChild(s);
+	        }
+	    };
+	    (function run() {
+	        if(a.length!=0){
+	            loader(a.shift(), run);
+	        } else {
+	        	// callback
+	            c && c();
+	        }
+	    })();
+	},
+
+	loadCSS: (f) => {
+		var h = document.getElementsByTagName("head")[0];
+		var r = f.split(); 
+		var c = null;
+		for (var i of r) {
+			c = document.createElement("link");
+	        c.setAttribute("rel", "stylesheet");
+	        c.setAttribute("type", "text/css");
+	        c.setAttribute("href", i);
+			h.appendChild(c);
+		}
 	}
 });
 
