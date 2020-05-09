@@ -336,11 +336,31 @@ const aretha = (q) => ({
 		}
 
 		if (el.length >= 1) {
+			var st = 1;
+			var ss = "|";
 			for (var item of fields) {
 				val = "";
 				switch(item.tagName.toLowerCase()) {
 					case 'input' : val = item.value; break;
-					case 'select': val = item.options[item.selectedIndex].value; break;
+					case 'select': if (item.hasAttribute('data-af-senddata')) {
+								   	   switch(item.getAttribute('data-af-senddata')) {
+								   	   	   case "value": st = 1; break;
+								   	   	   case "text" : st = 2; break;
+								   	   	   case "both" : st = 3; break;
+								   	   	   default     : st = 1; break;
+								   	   }
+								   } else {
+								   	   st = 1;
+								   }
+								   if (item.hasAttribute('data-af-delimiter')) {
+								   	   ss = item.getAttribute('data-af-delimiter');
+								   }
+								   switch (st) {
+								   	   case 1: val = item.options[item.selectedIndex].value; break;
+								   	   case 2: val = item.options[item.selectedIndex].text; break;
+								   	   case 3: val = item.options[item.selectedIndex].value + ss + item.options[item.selectedIndex].text; break;
+								   }
+								   break;
 				}
 
 				if (item.hasAttribute('name')) {
