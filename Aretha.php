@@ -270,6 +270,11 @@ class Aretha {
 		return false;
     }
 
+    public static function verifySession() {
+    	include_once 'modals/modal.session.lost.php';
+    	Aretha::newScriptBlock("setInterval(afVerifySession(), 300000);");
+    }
+
 	public static function generateToken($length, $upper = false){
 	     $token    = "";
 	     $alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -283,6 +288,17 @@ class Aretha {
 		} else {
 			return $token;
 		}
+	}
+
+	//===================================================================================================
+	//===================================================================================================	
+	// JavaScript Helpers
+	//===================================================================================================
+	//===================================================================================================	
+	public static function newScriptBlock($script, $id = "") {
+		echo '<script type="text/javascript" id="' . $id . '">';
+		echo $script;
+		echo '</script>';
 	}
 
 	//===================================================================================================
