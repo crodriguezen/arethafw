@@ -351,41 +351,45 @@ class Aretha {
 				$isRangeError = false;
 				switch ($field['type']) {
 					case 'Integer':
-						if (!is_numeric($val)) {
-							$response['type'][]  = array("name" => $fieldName, "detail" => "[Integer]");
-							$response['fieldok'] = false;
-							$response['error_count']++;
-							$errorType           = "type";
-						} else {
-							$minValue = "N/A";
-							$maxValue = "N/A";
-							if (strlen($val) > 0) {
-								if (isset($field['min_value'])) {
-									$minValue = $field['min_value'];
-								}
-								if (isset($field['max_value'])) {
-									$maxValue = $field['max_value'];
-								}
-
-								if (isset($field['min_value']) && $val < $field['min_value']) {
-									$isRangeError = true;
-								}
-								if (isset($field['max_value']) && $val > $field['max_value']) {
-									$isRangeError = true;
-								}
-							}
-							if ($isRangeError) {
-								$response['range'][] = array("name" => $fieldName, "detail" => "[Min: " . $minValue . " Max: " . $maxValue . "]");
+						if (strlen($val) > 0) {
+							if (!is_numeric($val)) {
+								$response['type'][]  = array("name" => $fieldName, "detail" => "[Integer]");
 								$response['fieldok'] = false;
-								$errorType           = "range";
+								$response['error_count']++;
+								$errorType           = "type";
+							} else {
+								$minValue = "N/A";
+								$maxValue = "N/A";
+								if (strlen($val) > 0) {
+									if (isset($field['min_value'])) {
+										$minValue = $field['min_value'];
+									}
+									if (isset($field['max_value'])) {
+										$maxValue = $field['max_value'];
+									}
+
+									if (isset($field['min_value']) && $val < $field['min_value']) {
+										$isRangeError = true;
+									}
+									if (isset($field['max_value']) && $val > $field['max_value']) {
+										$isRangeError = true;
+									}
+								}
+								if ($isRangeError) {
+									$response['range'][] = array("name" => $fieldName, "detail" => "[Min: " . $minValue . " Max: " . $maxValue . "]");
+									$response['fieldok'] = false;
+									$errorType           = "range";
+								}
 							}
 						}
 						break;
 					case 'Date':
-						if (!Aretha::isDate($val)) {
-							$response['type'][]  = array("name" => $fieldName, "detail" => "[Date]");
-							$response['fieldok'] = false;
-							$errorType           = "type";
+						if (strlen($val) > 0) {
+							if (!Aretha::isDate($val)) {
+								$response['type'][]  = array("name" => $fieldName, "detail" => "[Date]");
+								$response['fieldok'] = false;
+								$errorType           = "type";
+							}
 						}
 						break;
 					case 'Email':
@@ -563,17 +567,20 @@ class Aretha {
 						}
 						break;
 					case 'Catalog':
-						if (isset($field['catalog'])) {
-							if (!in_array($val, $field['catalog'])) {
-								$response['type'][]  = array("name" => $fieldName, "detail" => "[Catalog: ". implode("|", $field['catalog']) . "]");
+						if (strlen($val) > 0) {
+							if (isset($field['catalog'])) {
+								if (!in_array($val, $field['catalog'])) {
+									$response['type'][]  = array("name" => $fieldName, "detail" => "[Catalog: ". implode("|", $field['catalog']) . "]");
+									$response['fieldok'] = false;
+									$errorType           = "catalog";
+								}
+							} else {
+								$response['type'][]  = array("name" => $fieldName, "detail" => "[Unknow Catalog]");
 								$response['fieldok'] = false;
-								$errorType           = "catalog";
+								$errorType = "unknow_catalog";
 							}
-						} else {
-							$response['type'][]  = array("name" => $fieldName, "detail" => "[Unknow Catalog]");
-							$response['fieldok'] = false;
-							$errorType = "unknow_catalog";
 						}
+						break;
 				} // END EVALUATION OF TYPE
 			} else {
 				$response['status']  = "fail";
