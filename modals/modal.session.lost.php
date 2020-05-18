@@ -1,4 +1,4 @@
-<div class="modal" tabindex="-1" role="dialog">
+<div class="modal" tabindex="-1" role="dialog" id="af-modal-sessionlost">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -9,7 +9,7 @@
             </div>
             <div class="modal-body">
                 <p>
-                  
+                    Tu sesión ha expirado, inicia sesión nuevamente para continuar trabajando.
                 </p>
             </div>
             <div class="modal-footer">
