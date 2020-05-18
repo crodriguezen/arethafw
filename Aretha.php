@@ -4,7 +4,7 @@
  * @author Cristian A. Rodriguez Enriquez
  * @version V2.16 14 May 2020  (c) 2012-2020 Cristian A. Rodriguez Enriquez (crodriguezen). All rights reserved.
  *
- * Latest version is available at https://arethafw.cloutek.com
+ * Latest version is available at https://github.com/crodriguezen/arethafw
  *
  */
 define('ARETHA_DIRNAME', "arethafw");
