@@ -336,10 +336,11 @@ const aretha = (q) => ({
 		}
 
 		if (el.length >= 1) {
-			var st = 1;
+			var st = 1, nn = true, se = false;
 			var ss = "|";
 			for (var item of fields) {
 				val = "";
+				nn = true, se = false;
 				switch(item.tagName.toLowerCase()) {
 					case 'input' : val = item.value; break;
 					case 'select': if (item.hasAttribute('data-af-senddata')) {
@@ -355,10 +356,21 @@ const aretha = (q) => ({
 								   if (item.hasAttribute('data-af-delimiter')) {
 								   	   ss = item.getAttribute('data-af-delimiter');
 								   }
+								   if (item.hasAttribute('data-af-notnull')) {
+								   	   nn = item.getAttribute('data-af-notnull');
+								   }
+								   if (nn && item.options[item.selectedIndex].value.trim() == "") {
+								   	   se = true;
+								   }
+
 								   switch (st) {
 								   	   case 1: val = item.options[item.selectedIndex].value; break;
 								   	   case 2: val = item.options[item.selectedIndex].text; break;
-								   	   case 3: val = item.options[item.selectedIndex].value + ss + item.options[item.selectedIndex].text; break;
+								   	   case 3: if (se) {
+									   	   	       val = "";
+									   	       } else {
+									   	   	       val = item.options[item.selectedIndex].value + ss + item.options[item.selectedIndex].text; break;
+									   	       }
 								   }
 								   break;
 				}
@@ -450,7 +462,21 @@ const aretha = (q) => ({
 	}
 });
 
+function afVerifySession() {
+	aretha().get({
+        "url"             : 'arethafw/php/session/verify.session.php',
+        "data"            : {},
+        success: function(data) {
+        	var json = JSON.parse(data);
+        	if (json.expired) {
+            	$('#af-modal-sessionlost').modal('show');
+        	}
+        }
+    });
+}
+
 aretha().ready(function() {
+
 	aretha('body').on('click', function(e) {
 		
 		if ( (" " + e.target.className + " ").replace(/[\n\t]/g, " ").indexOf(" af-link ") > -1 ) {
@@ -479,6 +505,17 @@ aretha().ready(function() {
 		        },
 		        notfound : function(xhr) {
 		        	aretha(_target).html(xhr);	
+		        }
+		    });
+
+		    aretha().get({
+		        "url"             : 'arethafw/php/session/verify.session.php',
+		        "data"            : {},
+		        success: function(data) {
+		        	var json = JSON.parse(data);
+		        	if (json.expired) {
+		            	$('#af-modal-sessionlost').modal('show');
+		        	}
 		        }
 		    });
 		    e.stopPropagation();
