@@ -2,9 +2,11 @@
 /**
  *
  * @author Cristian A. Rodriguez Enriquez
- * @version V2.16 14 May 2020  (c) 2012-2020 Cristian A. Rodriguez Enriquez (crodriguezen). All rights reserved.
+ * @version V2.16 14 May 2020
  *
  * Latest version is available at https://github.com/crodriguezen/arethafw
+ * 
+ * Distributed under the MIT License (license terms are at http://opensource.org/licenses/MIT).
  *
  */
 define('ARETHA_DIRNAME', "arethafw");
