@@ -1,4 +1,4 @@
-var afloader = '';
+var afloader =  '<div class="af-default-loader"></div>';
 
 function afRunjs(target) {
 	var scriptElements = target.getElementsByTagName("script");
