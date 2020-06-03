@@ -190,21 +190,41 @@ class UserInstances {
 		}
 	}
 
-	public function changeInstanceOwner() {
+	public function getAlterTable() {
 		$da = new \aretha\dao\DataAccess();
+		$res = false;
 		$queryOwnerTable = sprintf("SELECT 'ALTER TABLE '|| schemaname || '.' || tablename ||' OWNER TO \"%s\";'
 									FROM pg_tables 
 									WHERE NOT schemaname IN ('pg_catalog', 'information_schema')
 									ORDER BY schemaname, tablename;",
 									$this->newUser
 									);
-		
+		if ($da->connect()) {
+			$res = $da->execGetQuery($queryOwnerTable);
+		}
+		$da->disconnect();
+		return $res;	
+	}
+
+	public function getAlterSequence() {
+		$da = new \aretha\dao\DataAccess();
+		$res = false;
 		$queryOwnerSeque = sprintf("SELECT 'ALTER SEQUENCE '|| sequence_schema || '.' || sequence_name ||' OWNER TO \"%s\";'
 									FROM information_schema.sequences 
 									WHERE NOT sequence_schema IN ('pg_catalog', 'information_schema')
 									ORDER BY sequence_schema, sequence_name;",
 									$this->newUser
 									);
+		if ($da->connect()) {
+			$res = $da->execGetQuery($queryOwnerSeque);
+		}
+		$da->disconnect();
+		return $res;	
+	}
+
+	public function getAlterView() {
+		$da = new \aretha\dao\DataAccess();
+		$res = false;
 		$queryOwnerViews = sprintf("SELECT 'ALTER VIEW '|| table_schema || '.' || table_name ||' OWNER TO \"%s\";'
 									FROM information_schema.views 
 									WHERE NOT table_schema IN ('pg_catalog', 'information_schema')
@@ -212,9 +232,21 @@ class UserInstances {
 									$this->newUser
 									);
 		if ($da->connect()) {
-			//$resultDB   = $da->execGetQuery($queryOwnerTable);
-			//$resultDB   = $da->execGetQuery($queryOwnerSeque);
-			//$resultDB   = $da->execGetQuery($queryOwnerViews);
+			$res = $da->execGetQuery($queryOwnerViews);
+		}
+		$da->disconnect();
+		return $res;	
+	}
+
+	public function executeAlters($dataRow) {
+		$da = new \aretha\dao\DataAccess();
+		
+		if ($da->connect()) {
+			if ($dataRow != false) {
+				foreach ($dataRow as $row) {
+					$r = $da->execGetQuery($row[0]);
+				}
+			}
 			$da->disconnect();
 		}
 	}
