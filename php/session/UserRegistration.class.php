@@ -120,6 +120,19 @@ class UserRegistration {
 		}
 	}
 
+	public function validateEmail() {
+		$da = new \aretha\dao\DataAccess();
+		$query = sprintf("UPDATE users SET email_validated = true WHERE username = '%s';", 
+			$this->username
+		);
+		if ($da->connect()) {
+			$result = $da->execSetQuery($query);
+			$da->disconnect();
+			return true;
+		} else {
+			return false;
+		}
+	}
 
 }
 ?>
