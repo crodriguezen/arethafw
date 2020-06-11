@@ -10,6 +10,7 @@
  *
  */
 define('ARETHA_DIRNAME', "arethafw");
+define('ARETHA_VERSION', "2.16");
 
 define('POSTGRESQL', 1);
 define('MYSQL'     , 2);
@@ -27,6 +28,20 @@ spl_autoload_register(
 			"../",
 			"../../",
 			"../../../",
+
+			"app/" . ARETHA_DIRNAME . "/",
+			"app/" . ARETHA_DIRNAME . "/dao/",
+			"app/" . ARETHA_DIRNAME . "/classes/",
+			"app/" . ARETHA_DIRNAME . "/models/",
+			"app/" . ARETHA_DIRNAME . "/entities/",
+			"app/" . ARETHA_DIRNAME . "/plainObjects/",
+			"app/" . ARETHA_DIRNAME . "/php/session/",
+			"app/" . ARETHA_DIRNAME . "/php/util/",
+			"app/" . ARETHA_DIRNAME . "/php/bootstrap/",
+			"app/" . ARETHA_DIRNAME . "/php/ws/",
+			"app/" . ARETHA_DIRNAME . "/vplugins/",
+			"app/" . ARETHA_DIRNAME . "/plugins/",
+			"app/" . ARETHA_DIRNAME . "/lib/",
 
 			"classes/",
 			"../classes/",
@@ -856,5 +871,6 @@ class Aretha {
 	public function getLastError() {
 		return $this->objectEngine->getLastError();
 	}
+
 }
 ?>
