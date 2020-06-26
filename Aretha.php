@@ -28,6 +28,7 @@ spl_autoload_register(
 			"../",
 			"../../",
 			"../../../",
+			"../../../../",
 
 			"app/" . ARETHA_DIRNAME . "/",
 			"app/" . ARETHA_DIRNAME . "/dao/",
@@ -43,6 +44,104 @@ spl_autoload_register(
 			"app/" . ARETHA_DIRNAME . "/plugins/",
 			"app/" . ARETHA_DIRNAME . "/lib/",
 
+			"../app/" . ARETHA_DIRNAME . "/",
+			"../app/" . ARETHA_DIRNAME . "/dao/",
+			"../app/" . ARETHA_DIRNAME . "/classes/",
+			"../app/" . ARETHA_DIRNAME . "/models/",
+			"../app/" . ARETHA_DIRNAME . "/entities/",
+			"../app/" . ARETHA_DIRNAME . "/plainObjects/",
+			"../app/" . ARETHA_DIRNAME . "/php/session/",
+			"../app/" . ARETHA_DIRNAME . "/php/util/",
+			"../app/" . ARETHA_DIRNAME . "/php/bootstrap/",
+			"../app/" . ARETHA_DIRNAME . "/php/ws/",
+			"../app/" . ARETHA_DIRNAME . "/vplugins/",
+			"../app/" . ARETHA_DIRNAME . "/plugins/",
+			"../app/" . ARETHA_DIRNAME . "/lib/",
+
+			"../../app/" . ARETHA_DIRNAME . "/",
+			"../../app/" . ARETHA_DIRNAME . "/dao/",
+			"../../app/" . ARETHA_DIRNAME . "/classes/",
+			"../../app/" . ARETHA_DIRNAME . "/models/",
+			"../../app/" . ARETHA_DIRNAME . "/entities/",
+			"../../app/" . ARETHA_DIRNAME . "/plainObjects/",
+			"../../app/" . ARETHA_DIRNAME . "/php/session/",
+			"../../app/" . ARETHA_DIRNAME . "/php/util/",
+			"../../app/" . ARETHA_DIRNAME . "/php/bootstrap/",
+			"../../app/" . ARETHA_DIRNAME . "/php/ws/",
+			"../../app/" . ARETHA_DIRNAME . "/vplugins/",
+			"../../app/" . ARETHA_DIRNAME . "/plugins/",
+			"../../app/" . ARETHA_DIRNAME . "/lib/",
+
+			"../../../app/" . ARETHA_DIRNAME . "/",
+			"../../../app/" . ARETHA_DIRNAME . "/dao/",
+			"../../../app/" . ARETHA_DIRNAME . "/classes/",
+			"../../../app/" . ARETHA_DIRNAME . "/models/",
+			"../../../app/" . ARETHA_DIRNAME . "/entities/",
+			"../../../app/" . ARETHA_DIRNAME . "/plainObjects/",
+			"../../../app/" . ARETHA_DIRNAME . "/php/session/",
+			"../../../app/" . ARETHA_DIRNAME . "/php/util/",
+			"../../../app/" . ARETHA_DIRNAME . "/php/bootstrap/",
+			"../../../app/" . ARETHA_DIRNAME . "/php/ws/",
+			"../../../app/" . ARETHA_DIRNAME . "/vplugins/",
+			"../../../app/" . ARETHA_DIRNAME . "/plugins/",
+			"../../../app/" . ARETHA_DIRNAME . "/lib/",
+
+			"admin/" . ARETHA_DIRNAME . "/",
+			"admin/" . ARETHA_DIRNAME . "/dao/",
+			"admin/" . ARETHA_DIRNAME . "/classes/",
+			"admin/" . ARETHA_DIRNAME . "/models/",
+			"admin/" . ARETHA_DIRNAME . "/entities/",
+			"admin/" . ARETHA_DIRNAME . "/plainObjects/",
+			"admin/" . ARETHA_DIRNAME . "/php/session/",
+			"admin/" . ARETHA_DIRNAME . "/php/util/",
+			"admin/" . ARETHA_DIRNAME . "/php/bootstrap/",
+			"admin/" . ARETHA_DIRNAME . "/php/ws/",
+			"admin/" . ARETHA_DIRNAME . "/vplugins/",
+			"admin/" . ARETHA_DIRNAME . "/plugins/",
+			"admin/" . ARETHA_DIRNAME . "/lib/",
+
+			"../admin/" . ARETHA_DIRNAME . "/",
+			"../admin/" . ARETHA_DIRNAME . "/dao/",
+			"../admin/" . ARETHA_DIRNAME . "/classes/",
+			"../admin/" . ARETHA_DIRNAME . "/models/",
+			"../admin/" . ARETHA_DIRNAME . "/entities/",
+			"../admin/" . ARETHA_DIRNAME . "/plainObjects/",
+			"../admin/" . ARETHA_DIRNAME . "/php/session/",
+			"../admin/" . ARETHA_DIRNAME . "/php/util/",
+			"../admin/" . ARETHA_DIRNAME . "/php/bootstrap/",
+			"../admin/" . ARETHA_DIRNAME . "/php/ws/",
+			"../admin/" . ARETHA_DIRNAME . "/vplugins/",
+			"../admin/" . ARETHA_DIRNAME . "/plugins/",
+			"../admin/" . ARETHA_DIRNAME . "/lib/",
+
+			"../../admin/" . ARETHA_DIRNAME . "/",
+			"../../admin/" . ARETHA_DIRNAME . "/dao/",
+			"../../admin/" . ARETHA_DIRNAME . "/classes/",
+			"../../admin/" . ARETHA_DIRNAME . "/models/",
+			"../../admin/" . ARETHA_DIRNAME . "/entities/",
+			"../../admin/" . ARETHA_DIRNAME . "/plainObjects/",
+			"../../admin/" . ARETHA_DIRNAME . "/php/session/",
+			"../../admin/" . ARETHA_DIRNAME . "/php/util/",
+			"../../admin/" . ARETHA_DIRNAME . "/php/bootstrap/",
+			"../../admin/" . ARETHA_DIRNAME . "/php/ws/",
+			"../../admin/" . ARETHA_DIRNAME . "/vplugins/",
+			"../../admin/" . ARETHA_DIRNAME . "/plugins/",
+			"../../admin/" . ARETHA_DIRNAME . "/lib/",
+
+			"../../../admin/" . ARETHA_DIRNAME . "/",
+			"../../../admin/" . ARETHA_DIRNAME . "/dao/",
+			"../../../admin/" . ARETHA_DIRNAME . "/classes/",
+			"../../../admin/" . ARETHA_DIRNAME . "/models/",
+			"../../../admin/" . ARETHA_DIRNAME . "/entities/",
+			"../../../admin/" . ARETHA_DIRNAME . "/plainObjects/",
+			"../../../admin/" . ARETHA_DIRNAME . "/php/session/",
+			"../../../admin/" . ARETHA_DIRNAME . "/php/util/",
+			"../../../admin/" . ARETHA_DIRNAME . "/php/bootstrap/",
+			"../../../admin/" . ARETHA_DIRNAME . "/php/ws/",
+			"../../../admin/" . ARETHA_DIRNAME . "/vplugins/",
+			"../../../admin/" . ARETHA_DIRNAME . "/plugins/",
+			"../../../admin/" . ARETHA_DIRNAME . "/lib/",
+
 			"classes/",
 			"../classes/",
 			"../../classes/",
@@ -54,14 +153,18 @@ spl_autoload_register(
 			"../../../models/",
 
 			"entities/",
+			"./entities/",
 			"../entities/",
 			"../../entities/",
 			"../../../entities/",
+			"../../../../entities/",
 
 			"plainObjects/",
+			"./plainObjects/",
 			"../plainObjects/",
 			"../../plainObjects/",
 			"../../../plainObjects/",
+			"../../../../plainObjects/",
 
 			ARETHA_DIRNAME . "/lib/",
 			"../" . ARETHA_DIRNAME . "/lib/",
@@ -93,6 +196,86 @@ spl_autoload_register(
 			"../../" . ARETHA_DIRNAME . "/dao/",
 			"../../../" . ARETHA_DIRNAME . "/dao/"
 		);
+		
+		// Load Modules ====
+		$arrModules = array();
+		$modules_json = "";
+
+		if (is_file("./conf/modules.json")) 
+			$modules_json = "./conf/modules.json";
+		if (is_file("../conf/modules.json")) 
+			$modules_json = "../conf/modules.json";
+		if (is_file("../../conf/modules.json")) 
+			$modules_json = "../../conf/modules.json";
+		if (is_file(ARETHA_DIRNAME . "/conf/modules.json")) 
+			$modules_json = ARETHA_DIRNAME . "/conf/modules.json";
+		if (is_file("../" . ARETHA_DIRNAME . "/conf/modules.json")) 
+			$modules_json = "../" . ARETHA_DIRNAME . "/conf/modules.json";
+		if (is_file("../../" . ARETHA_DIRNAME . "/conf/modules.json")) 
+			$modules_json = "../../" . ARETHA_DIRNAME . "/conf/modules.json";
+		if (is_file("admin/" . ARETHA_DIRNAME . "/conf/modules.json")) 
+			$modules_json = "admin/" . ARETHA_DIRNAME . "/conf/modules.json";
+		if (is_file("../admin/" . ARETHA_DIRNAME . "/conf/modules.json")) 
+			$modules_json = "../admin/" . ARETHA_DIRNAME . "/conf/modules.json";
+		if (is_file("../../admin/" . ARETHA_DIRNAME . "/conf/modules.json")) 
+			$modules_json = "../../admin/" . ARETHA_DIRNAME . "/conf/modules.json";
+		
+		if (is_file($modules_json)) {
+			$modules = json_decode(file_get_contents($modules_json));
+			foreach ($modules->modules as $mod) {
+				$arrModules[] = $mod->path;
+
+				$arethaPaths[] = "./"           . $mod->path . "/entities/";
+				$arethaPaths[] = "../"          . $mod->path . "/entities/";
+				$arethaPaths[] = "../../"       . $mod->path . "/entities/";
+				$arethaPaths[] = "../../../"    . $mod->path . "/entities/";
+				$arethaPaths[] = "../../../../" . $mod->path . "/entities/";
+
+				$arethaPaths[] = "./"           . $mod->path . "/plainObjects/";
+				$arethaPaths[] = "../"          . $mod->path . "/plainObjects/";
+				$arethaPaths[] = "../../"       . $mod->path . "/plainObjects/";
+				$arethaPaths[] = "../../../"    . $mod->path . "/plainObjects/";
+				$arethaPaths[] = "../../../../" . $mod->path . "/plainObjects/";
+
+				$arethaPaths[] = "./"           . ARETHA_DIRNAME . "/" . $mod->path . "/entities/";
+				$arethaPaths[] = "../"          . ARETHA_DIRNAME . "/" . $mod->path . "/entities/";
+				$arethaPaths[] = "../../"       . ARETHA_DIRNAME . "/" . $mod->path . "/entities/";
+				$arethaPaths[] = "../../../"    . ARETHA_DIRNAME . "/" . $mod->path . "/entities/";
+				$arethaPaths[] = "../../../../" . ARETHA_DIRNAME . "/" . $mod->path . "/entities/";
+
+				$arethaPaths[] = "./"           . ARETHA_DIRNAME . "/" . $mod->path . "/plainObjects/";
+				$arethaPaths[] = "../"          . ARETHA_DIRNAME . "/" . $mod->path . "/plainObjects/";
+				$arethaPaths[] = "../../"       . ARETHA_DIRNAME . "/" . $mod->path . "/plainObjects/";
+				$arethaPaths[] = "../../../"    . ARETHA_DIRNAME . "/" . $mod->path . "/plainObjects/";
+				$arethaPaths[] = "../../../../" . ARETHA_DIRNAME . "/" . $mod->path . "/plainObjects/";
+
+				$arethaPaths[] = "./admin/"           . $mod->path . "/entities/";
+				$arethaPaths[] = "../admin/"          . $mod->path . "/entities/";
+				$arethaPaths[] = "../../admin/"       . $mod->path . "/entities/";
+				$arethaPaths[] = "../../../admin/"    . $mod->path . "/entities/";
+				$arethaPaths[] = "../../../../admin/" . $mod->path . "/entities/";
+
+				$arethaPaths[] = "./admin/"           . $mod->path . "/plainObjects/";
+				$arethaPaths[] = "../admin/"          . $mod->path . "/plainObjects/";
+				$arethaPaths[] = "../../admin/"       . $mod->path . "/plainObjects/";
+				$arethaPaths[] = "../../../admin/"    . $mod->path . "/plainObjects/";
+				$arethaPaths[] = "../../../../admin/" . $mod->path . "/plainObjects/";
+
+				$arethaPaths[] = "./admin/"           . ARETHA_DIRNAME . "/" . $mod->path . "/entities/";
+				$arethaPaths[] = "../admin/"          . ARETHA_DIRNAME . "/" . $mod->path . "/entities/";
+				$arethaPaths[] = "../../admin/"       . ARETHA_DIRNAME . "/" . $mod->path . "/entities/";
+				$arethaPaths[] = "../../../admin/"    . ARETHA_DIRNAME . "/" . $mod->path . "/entities/";
+				$arethaPaths[] = "../../../../admin/" . ARETHA_DIRNAME . "/" . $mod->path . "/entities/";
+
+				$arethaPaths[] = "./admin/"           . ARETHA_DIRNAME . "/" . $mod->path . "/plainObjects/";
+				$arethaPaths[] = "../admin/"          . ARETHA_DIRNAME . "/" . $mod->path . "/plainObjects/";
+				$arethaPaths[] = "../../admin/"       . ARETHA_DIRNAME . "/" . $mod->path . "/plainObjects/";
+				$arethaPaths[] = "../../../admin/"    . ARETHA_DIRNAME . "/" . $mod->path . "/plainObjects/";
+				$arethaPaths[] = "../../../../admin/" . ARETHA_DIRNAME . "/" . $mod->path . "/plainObjects/";
+			}
+		} else {
+			echo "ARETHA ERROR: Modules << modules.json >> NOT FOUND";
+		}
 
 		$cpaths = count($arethaPaths);
 		
@@ -148,16 +331,26 @@ spl_autoload_register(
 			$arethaPaths[$cpaths]     = $namespace;
 			$arethaPaths[$cpaths + 1] = "../"    . $namespace;
 			$arethaPaths[$cpaths + 2] = "../../" . $namespace;
+
+			if (count($arrModules) > 0) {
+				foreach ($arrModules as $m) {
+					$arethaPaths[$cpaths++] = str_replace($m . "/", "../"   , $namespace);
+					$arethaPaths[$cpaths++] = str_replace($m . "/", "../../", $namespace);
+				}
+			}
+
+
 			$theclass = $_class;
 		}
 
 		// Include handler ===
 		$found = false;
 		foreach ($arethaPaths as $path) {
-			$include_file = $path . $theclass . ".class.php";
+			$include_file   = $path . $theclass   . ".class.php";
 			if (is_file($include_file)) {
-				include_once $include_file;				
+				include_once $include_file;
 				$found = true;
+				break;
 			}
 		}
 
@@ -168,6 +361,7 @@ spl_autoload_register(
 				if (is_file($include_file)) {
 					include_once $include_file;				
 					$found = true;
+					break;
 				}
 			}
 		}
@@ -336,292 +530,305 @@ class Aretha {
 			'fieldok'           => true
 		);
 
-		$fieldsVal = array();
+		$errorType = "";
 		foreach ($fields as $field) {
 			$fieldName = $prefix . $field['name'] . $suffix;
-			if (isset($_REQUEST[$fieldName])) {
-				$val = trim($_REQUEST[$fieldName]);
-				$fieldsVal[$fieldName] = $val;
+			if (!isset($_REQUEST[$fieldName])) {
+				$response['mandatory'][] = $fieldName;
+				$response['fieldok']     = false;
+				$errorType               = "undefined";
 			}
 		}
 
-		foreach ($fields as $field) {
-			$fieldName = $prefix . $field['name'] . $suffix;
-			if (isset($_REQUEST[$fieldName])) {
-				$val = trim($_REQUEST[$fieldName]);
-
-				if ($field['mandatory'] == "Y") {
-					if ($val == "") {
-						$response['mandatory'][] = $fieldName;
-						$response['fieldok']     = false;
-						$errorType               = "incomplete";
-						continue;
-					}
+		if ($errorType != "undefined") {
+			$fieldsVal = array();
+			foreach ($fields as $field) {
+				$fieldName = $prefix . $field['name'] . $suffix;
+				if (isset($_REQUEST[$fieldName])) {
+					$val = trim($_REQUEST[$fieldName]);
+					$fieldsVal[$fieldName] = $val;
 				}
+			}
 
-				// "mandatory_depends_on" => array(array("field" => "work_schedule_tipo", "values" => array("1")));
-				if ($field['mandatory'] == "D") {
-					if (isset($field['mandatory_depends_on'])) {
-						$depends = $field['mandatory_depends_on'];
-						if (is_array($depends)) {
-							foreach ($depends as $depend) {
-								$dependName = $prefix . $depend['field'] . $suffix;
-								if (is_array($depend['values'])) {
-									if (in_array($fieldsVal[$dependName], $depend['values']) ) {
-										if ($val == "") {
-											$response['mandatory'][] = $fieldName;
-											$response['fieldok']     = false;
-											$errorType               = "incomplete";
-											break;
+		
+			foreach ($fields as $field) {
+				$fieldName = $prefix . $field['name'] . $suffix;
+				if (isset($_REQUEST[$fieldName])) {
+					$val = trim($_REQUEST[$fieldName]);
+
+					if ($field['mandatory'] == "Y") {
+						if ($val == "") {
+							$response['mandatory'][] = $fieldName;
+							$response['fieldok']     = false;
+							$errorType               = "incomplete";
+							continue;
+						}
+					}
+
+					// "mandatory_depends_on" => array(array("field" => "work_schedule_tipo", "values" => array("1")));
+					if ($field['mandatory'] == "D") {
+						if (isset($field['mandatory_depends_on'])) {
+							$depends = $field['mandatory_depends_on'];
+							if (is_array($depends)) {
+								foreach ($depends as $depend) {
+									$dependName = $prefix . $depend['field'] . $suffix;
+									if (is_array($depend['values'])) {
+										if (in_array($fieldsVal[$dependName], $depend['values']) ) {
+											if ($val == "") {
+												$response['mandatory'][] = $fieldName;
+												$response['fieldok']     = false;
+												$errorType               = "incomplete";
+												break;
+											}
+										} // in_array()
+									} // is_array(values)
+								}
+							} // is_array(depends)
+						}
+					}
+
+					$isRangeError = false;
+					switch ($field['type']) {
+						case 'Integer':
+							if (strlen($val) > 0) {
+								if (!is_numeric($val)) {
+									$response['type'][]  = array("name" => $fieldName, "detail" => "[Integer]");
+									$response['fieldok'] = false;
+									$response['error_count']++;
+									$errorType           = "type";
+								} else {
+									$minValue = "N/A";
+									$maxValue = "N/A";
+									if (strlen($val) > 0) {
+										if (isset($field['min_value'])) {
+											$minValue = $field['min_value'];
 										}
-									} // in_array()
-								} // is_array(values)
-							}
-						} // is_array(depends)
-					}
-				}
+										if (isset($field['max_value'])) {
+											$maxValue = $field['max_value'];
+										}
 
-				$isRangeError = false;
-				switch ($field['type']) {
-					case 'Integer':
-						if (strlen($val) > 0) {
-							if (!is_numeric($val)) {
-								$response['type'][]  = array("name" => $fieldName, "detail" => "[Integer]");
-								$response['fieldok'] = false;
-								$response['error_count']++;
-								$errorType           = "type";
-							} else {
-								$minValue = "N/A";
-								$maxValue = "N/A";
-								if (strlen($val) > 0) {
-									if (isset($field['min_value'])) {
-										$minValue = $field['min_value'];
+										if (isset($field['min_value']) && $val < $field['min_value']) {
+											$isRangeError = true;
+										}
+										if (isset($field['max_value']) && $val > $field['max_value']) {
+											$isRangeError = true;
+										}
 									}
-									if (isset($field['max_value'])) {
-										$maxValue = $field['max_value'];
-									}
-
-									if (isset($field['min_value']) && $val < $field['min_value']) {
-										$isRangeError = true;
-									}
-									if (isset($field['max_value']) && $val > $field['max_value']) {
-										$isRangeError = true;
+									if ($isRangeError) {
+										$response['range'][] = array("name" => $fieldName, "detail" => "[Min: " . $minValue . " Max: " . $maxValue . "]");
+										$response['fieldok'] = false;
+										$errorType           = "range";
 									}
 								}
+							}
+							break;
+						case 'Date':
+							if (strlen($val) > 0) {
+								if (!Aretha::isDate($val)) {
+									$response['type'][]  = array("name" => $fieldName, "detail" => "[Date]");
+									$response['fieldok'] = false;
+									$errorType           = "type";
+								}
+							}
+							break;
+						case 'Email':
+							$isTypeError = false;
+							if (strlen($val) > 0) {
+								if (strlen($val) < 5) {
+									$response['type'][]  = array("name" => $fieldName, "detail" => "[E-mail Min: 5]");
+									$isTypeError = true;
+								}
+
+								if (!strstr($val, "@")) {
+									$response['type'][]  = array("name" => $fieldName, "detail" => "[E-mail must have an @]");
+									$isTypeError = true;
+								} else {
+									$arrEmail = explode("@", $val);
+									$before = ""; 
+									$after  = "";
+									if (is_array($arrEmail)) {
+										if (count($arrEmail) == 2) {
+											$before = $arrEmail[0];
+											$after  = $arrEmail[1];
+
+											if (strlen($before) == 0) {
+												$response['type'][]  = array("name" => $fieldName, "detail" => "[E-mail empty before @]");
+												$isTypeError = true;
+											}
+
+											if (strlen($after) == 0) {
+												$response['type'][]  = array("name" => $fieldName, "detail" => "[E-mail empty after @]");
+												$isTypeError = true;
+											} else {
+												if (!strstr($after, ".")) {
+													$response['type'][]  = array("name" => $fieldName, "detail" => "[E-mail must have a .]");
+													$isTypeError = true;
+												} else {
+													$arrDomain = explode(".", $after);
+													if (is_array($arrDomain)) {
+														if (count($arrDomain) == 2) {
+															$before = $arrDomain[0];
+															$after  = $arrDomain[1];
+															if (strlen($before) == 0) {
+																$response['type'][]  = array("name" => $fieldName, "detail" => "[E-mail empty before .]");
+																$isTypeError = true;
+															}
+
+															if (strlen($after) == 0) {
+																$response['type'][]  = array("name" => $fieldName, "detail" => "[E-mail empty after .]");
+																$isTypeError = true;
+															}
+														}
+
+														if (count($arrDomain) == 3) {
+															$before = $arrDomain[1];
+															$after  = $arrDomain[2];
+															if (strlen($before) == 0) {
+																$response['type'][]  = array("name" => $fieldName, "detail" => "[E-mail empty before .]");
+																$isTypeError = true;
+															}
+
+															if (strlen($after) == 0) {
+																$response['type'][]  = array("name" => $fieldName, "detail" => "[E-mail empty after .]");
+																$isTypeError = true;
+															}
+														}
+													}
+													
+												}
+											}
+
+
+										} else {
+											$response['type'][]  = array("name" => $fieldName, "detail" => "[E-mail must have two parts]");
+											$isTypeError = true;
+										}
+									}
+								}
+
+								
+								if ($isTypeError) {
+									$response['fieldok'] = false;
+									$errorType           = "type";
+								} 
+							}
+							break;
+						case 'String':
+							$minLength = "N/A";
+							$maxLength = "N/A";
+							if (strlen($val) > 0) {
+								if (isset($field['min_length'])) {
+									$minLength = $field['min_length'];
+								}
+								if (isset($field['max_length'])) {
+									$maxLength = $field['max_length'];
+								}
+
+								if (isset($field['min_length']) && strlen($val) < $field['min_length']) {
+									$isRangeError = true;
+								}
+								if (isset($field['max_length']) && strlen($val) > $field['max_length']) {
+									$isRangeError = true;
+								}
+
 								if ($isRangeError) {
-									$response['range'][] = array("name" => $fieldName, "detail" => "[Min: " . $minValue . " Max: " . $maxValue . "]");
+									$response['error_count']++;
+									$response['range'][] = array("name" => $fieldName, "detail" => "[Min: " . $minLength . " Max: " . $maxLength . "]");
 									$response['fieldok'] = false;
 									$errorType           = "range";
 								}
 							}
-						}
-						break;
-					case 'Date':
-						if (strlen($val) > 0) {
-							if (!Aretha::isDate($val)) {
-								$response['type'][]  = array("name" => $fieldName, "detail" => "[Date]");
-								$response['fieldok'] = false;
-								$errorType           = "type";
-							}
-						}
-						break;
-					case 'Email':
-						$isTypeError = false;
-						if (strlen($val) > 0) {
-							if (strlen($val) < 5) {
-								$response['type'][]  = array("name" => $fieldName, "detail" => "[E-mail Min: 5]");
-								$isTypeError = true;
-							}
-
-							if (!strstr($val, "@")) {
-								$response['type'][]  = array("name" => $fieldName, "detail" => "[E-mail must have an @]");
-								$isTypeError = true;
-							} else {
-								$arrEmail = explode("@", $val);
-								$before = ""; 
-								$after  = "";
-								if (is_array($arrEmail)) {
-									if (count($arrEmail) == 2) {
-										$before = $arrEmail[0];
-										$after  = $arrEmail[1];
-
-										if (strlen($before) == 0) {
-											$response['type'][]  = array("name" => $fieldName, "detail" => "[E-mail empty before @]");
-											$isTypeError = true;
-										}
-
-										if (strlen($after) == 0) {
-											$response['type'][]  = array("name" => $fieldName, "detail" => "[E-mail empty after @]");
-											$isTypeError = true;
-										} else {
-											if (!strstr($after, ".")) {
-												$response['type'][]  = array("name" => $fieldName, "detail" => "[E-mail must have a .]");
-												$isTypeError = true;
-											} else {
-												$arrDomain = explode(".", $after);
-												if (is_array($arrDomain)) {
-													if (count($arrDomain) == 2) {
-														$before = $arrDomain[0];
-														$after  = $arrDomain[1];
-														if (strlen($before) == 0) {
-															$response['type'][]  = array("name" => $fieldName, "detail" => "[E-mail empty before .]");
-															$isTypeError = true;
-														}
-
-														if (strlen($after) == 0) {
-															$response['type'][]  = array("name" => $fieldName, "detail" => "[E-mail empty after .]");
-															$isTypeError = true;
-														}
-													}
-
-													if (count($arrDomain) == 3) {
-														$before = $arrDomain[1];
-														$after  = $arrDomain[2];
-														if (strlen($before) == 0) {
-															$response['type'][]  = array("name" => $fieldName, "detail" => "[E-mail empty before .]");
-															$isTypeError = true;
-														}
-
-														if (strlen($after) == 0) {
-															$response['type'][]  = array("name" => $fieldName, "detail" => "[E-mail empty after .]");
-															$isTypeError = true;
-														}
-													}
-												}
-												
-											}
-										}
-
-
-									} else {
-										$response['type'][]  = array("name" => $fieldName, "detail" => "[E-mail must have two parts]");
-										$isTypeError = true;
-									}
+							break;
+						case 'Phone':
+							$minLength = "N/A";
+							$maxLength = "N/A";
+							if (strlen($val) > 0) {
+								if (isset($field['min_length'])) {
+									$minLength = $field['min_length'];
 								}
-							}
+								if (isset($field['max_length'])) {
+									$maxLength = $field['max_length'];
+								}
 
-							
-							if ($isTypeError) {
-								$response['fieldok'] = false;
-								$errorType           = "type";
-							} 
-						}
-						break;
-					case 'String':
-						$minLength = "N/A";
-						$maxLength = "N/A";
-						if (strlen($val) > 0) {
-							if (isset($field['min_length'])) {
-								$minLength = $field['min_length'];
-							}
-							if (isset($field['max_length'])) {
-								$maxLength = $field['max_length'];
-							}
+								if (isset($field['min_length']) && strlen($val) < $field['min_length']) {
+									$isRangeError = true;
+								}
+								if (isset($field['max_length']) && strlen($val) > $field['max_length']) {
+									$isRangeError = true;
+								}
 
-							if (isset($field['min_length']) && strlen($val) < $field['min_length']) {
-								$isRangeError = true;
-							}
-							if (isset($field['max_length']) && strlen($val) > $field['max_length']) {
-								$isRangeError = true;
-							}
-
-							if ($isRangeError) {
-								$response['error_count']++;
-								$response['range'][] = array("name" => $fieldName, "detail" => "[Min: " . $minLength . " Max: " . $maxLength . "]");
-								$response['fieldok'] = false;
-								$errorType           = "range";
-							}
-						}
-						break;
-					case 'Phone':
-						$minLength = "N/A";
-						$maxLength = "N/A";
-						if (strlen($val) > 0) {
-							if (isset($field['min_length'])) {
-								$minLength = $field['min_length'];
-							}
-							if (isset($field['max_length'])) {
-								$maxLength = $field['max_length'];
-							}
-
-							if (isset($field['min_length']) && strlen($val) < $field['min_length']) {
-								$isRangeError = true;
-							}
-							if (isset($field['max_length']) && strlen($val) > $field['max_length']) {
-								$isRangeError = true;
-							}
-
-							if ($isRangeError) {
-								$response['error_count']++;
-								$response['range'][] = array("name" => $fieldName, "detail" => "[Min: " . $minLength . " Max: " . $maxLength . "]");
-								$response['fieldok'] = false;
-								$errorType           = "range";
-							}
-
-							if (!is_numeric($val)) {
-								$response['error_count']++;
-								$response['type'][]  = array("name" => $fieldName, "detail" => "[Phone is numeric]");
-								$response['fieldok'] = false;
-								$errorType = "type";
-							}
-						}
-						break;
-					case 'Zipcode':
-						$minLength = "N/A";
-						$maxLength = "N/A";
-						if (strlen($val) > 0) {
-							if (isset($field['min_length'])) {
-								$minLength = $field['min_length'];
-							}
-							if (isset($field['max_length'])) {
-								$maxLength = $field['max_length'];
-							}
-
-							if (isset($field['min_length']) && strlen($val) < $field['min_length']) {
-								$isRangeError = true;
-							}
-							if (isset($field['max_length']) && strlen($val) > $field['max_length']) {
-								$isRangeError = true;
-							}
-
-							if ($isRangeError) {
-								$response['error_count']++;
-								$response['range'][] = array("name" => $fieldName, "detail" => "[Min: " . $minLength . " Max: " . $maxLength . "]");
-								$response['fieldok'] = false;
-								$errorType           = "range";
-							}
-
-							if (!is_numeric($val)) {
-								$response['error_count']++;
-								$response['type'][]  = array("name" => $fieldName, "detail" => "[Zipcode is numeric]");
-								$response['fieldok'] = false;
-								$errorType = "type";
-							}
-						}
-						break;
-					case 'Catalog':
-						if (strlen($val) > 0) {
-							if (isset($field['catalog'])) {
-								if (!in_array($val, $field['catalog'])) {
-									$response['type'][]  = array("name" => $fieldName, "detail" => "[Catalog: ". implode("|", $field['catalog']) . "]");
+								if ($isRangeError) {
+									$response['error_count']++;
+									$response['range'][] = array("name" => $fieldName, "detail" => "[Min: " . $minLength . " Max: " . $maxLength . "]");
 									$response['fieldok'] = false;
-									$errorType           = "catalog";
+									$errorType           = "range";
 								}
-							} else {
-								$response['type'][]  = array("name" => $fieldName, "detail" => "[Unknow Catalog]");
-								$response['fieldok'] = false;
-								$errorType = "unknow_catalog";
+
+								if (!is_numeric($val)) {
+									$response['error_count']++;
+									$response['type'][]  = array("name" => $fieldName, "detail" => "[Phone is numeric]");
+									$response['fieldok'] = false;
+									$errorType = "type";
+								}
 							}
-						}
-						break;
-				} // END EVALUATION OF TYPE
-			} else {
-				$response['status']  = "fail";
-				$response['code']    = "P001";
-				$response['message'] = "Parámetros incompletos, intente recargar la aplicación.";
-				break;
-			}
-		} // end foreach
+							break;
+						case 'Zipcode':
+							$minLength = "N/A";
+							$maxLength = "N/A";
+							if (strlen($val) > 0) {
+								if (isset($field['min_length'])) {
+									$minLength = $field['min_length'];
+								}
+								if (isset($field['max_length'])) {
+									$maxLength = $field['max_length'];
+								}
+
+								if (isset($field['min_length']) && strlen($val) < $field['min_length']) {
+									$isRangeError = true;
+								}
+								if (isset($field['max_length']) && strlen($val) > $field['max_length']) {
+									$isRangeError = true;
+								}
+
+								if ($isRangeError) {
+									$response['error_count']++;
+									$response['range'][] = array("name" => $fieldName, "detail" => "[Min: " . $minLength . " Max: " . $maxLength . "]");
+									$response['fieldok'] = false;
+									$errorType           = "range";
+								}
+
+								if (!is_numeric($val)) {
+									$response['error_count']++;
+									$response['type'][]  = array("name" => $fieldName, "detail" => "[Zipcode is numeric]");
+									$response['fieldok'] = false;
+									$errorType = "type";
+								}
+							}
+							break;
+						case 'Catalog':
+							if (strlen($val) > 0) {
+								if (isset($field['catalog'])) {
+									if (!in_array($val, $field['catalog'])) {
+										$response['type'][]  = array("name" => $fieldName, "detail" => "[Catalog: ". implode("|", $field['catalog']) . "]");
+										$response['fieldok'] = false;
+										$errorType           = "catalog";
+									}
+								} else {
+									$response['type'][]  = array("name" => $fieldName, "detail" => "[Unknow Catalog]");
+									$response['fieldok'] = false;
+									$errorType = "unknow_catalog";
+								}
+							}
+							break;
+					} // END EVALUATION OF TYPE
+				} else {
+					$response['status']  = "fail";
+					$response['code']    = "P001";
+					$response['message'] = "Parámetros incompletos, intente recargar la aplicación.";
+					break;
+				}
+			} // end foreach
+		}
 
 		if (!$response['fieldok']) {
 			$response['status']      = "fail";
@@ -646,6 +853,10 @@ class Aretha {
 				case 'range':
 					$response['code']    = "P006";
 					$response['message'] = "Valor fuera de rango.";
+					break;
+				case 'undefined':
+					$response['code']    = "P007";
+					$response['message'] = "Parámetros no definidos.";
 					break;
 			}
 		}
