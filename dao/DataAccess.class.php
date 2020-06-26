@@ -114,11 +114,10 @@ class DataAccess {
 			    break;
 			case 2: 
 			    $this->objectEngine = new MySQL();
-			    $this->objectEngine->setHost($this->host);
-			    $this->objectEngine->setPort($this->port);
-			    $this->objectEngine->setUserName($this->databaseUser);
-			    $this->objectEngine->setPassword($this->databasePassword);
-			    $this->objectEngine->setDataBase($this->databaseName);
+			    if ($this->port == "") {
+				    $this->port = self::MYSQL_DEFAULT_PORT;
+				}
+			    $this->objectEngine->connect($this->host, $this->port, $this->databaseName, $this->databaseUser, $this->databasePassword);
 				break;
 			default: break;
 		}
@@ -154,7 +153,11 @@ class DataAccess {
 	public function escape_string($string) {
 	    switch($this->engine) {
 		    case DataAccess::ENGINE_POSTGRESQL: $string = pg_escape_string($string); break;
-		    case DataAccess::ENGINE_MYSQL: $string = mysql_real_escape_string($string); break;
+		    case DataAccess::ENGINE_MYSQL: 
+		    	if ($this->objectEngine->getConnection() != false) {
+		    		$string = mysqli_real_escape_string($this->objectEngine->getConnection(), $string); 
+		    	}
+		    	break;
 		    default: break;
 	    }
 		return $string;
@@ -176,6 +179,7 @@ class DataAccess {
 	// CONSTANT DEFINITIONS
 	//==============================================================================================	
     const POSTGRESQL_DEFAULT_PORT = "5432";
+    const MYSQL_DEFAULT_PORT = "3306";
     const ENGINE_MYSQL = 2;	
 	const ENGINE_POSTGRESQL = 1;
 	
