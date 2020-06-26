@@ -1,0 +1,393 @@
+{
+    "countries" : {
+        "country" : {
+		    "name"  : "Afghanistan",
+		    "code"  : "93",
+		    "iso_1" : "AF",
+		    "iso_2" : "AFG"
+        },
+        "country" : {
+		    "name"  : "Albania",
+		    "code"  : "355",
+		    "iso_1" : "AL",
+		    "iso_2" : "ALB"
+        },
+        "country" : {
+		    "name"  : "Algeria",
+		    "code"  : "213",
+		    "iso_1" : "DZ",
+		    "iso_2" : "DZA"
+        },
+        "country" : {
+		    "name"  : "American Samoa",
+		    "code"  : "1-684",
+		    "iso_1" : "AS",
+		    "iso_2" : "ASM"
+        },
+        "country" : {
+		    "name"  : "Andorra",
+		    "code"  : "376",
+		    "iso_1" : "AD",
+		    "iso_2" : "AND"
+        },
+        "country" : {
+		    "name"  : "Angola",
+		    "code"  : "244",
+		    "iso_1" : "AO",
+		    "iso_2" : "AGO"
+        },
+        "country" : {
+		    "name"  : "Anguilla",
+		    "code"  : "1-264",
+		    "iso_1" : "AI",
+		    "iso_2" : "AIA"
+        },
+        "country" : {
+		    "name"  : "Antarctica",
+		    "code"  : "672",
+		    "iso_1" : "AQ",
+		    "iso_2" : "ATA"
+        },
+        "country" : {
+		    "name"  : "Antigua and Barbuda",
+		    "code"  : "1-268",
+		    "iso_1" : "AG",
+		    "iso_2" : "ATG"
+        },
+        "country" : {
+		    "name"  : "Argentina",
+		    "code"  : "54",
+		    "iso_1" : "AR",
+		    "iso_2" : "ARG"
+        },
+        "country" : {
+		    "name"  : "Armenia",
+		    "code"  : "374",
+		    "iso_1" : "AM",
+		    "iso_2" : "ARM"
+        },
+        "country" : {
+		    "name"  : "Aruba",
+		    "code"  : "297",
+		    "iso_1" : "AW",
+		    "iso_2" : "ABW"
+        },
+        "country" : {
+		    "name"  : "Australia",
+		    "code"  : "61",
+		    "iso_1" : "AU",
+		    "iso_2" : "AUS"
+        },
+        "country" : {
+		    "name"  : "Austria",
+		    "code"  : "43",
+		    "iso_1" : "AT",
+		    "iso_2" : "AUT"
+        },
+        "country" : {
+		    "name"  : "Bahamas",
+		    "code"  : "1-242",
+		    "iso_1" : "BS",
+		    "iso_2" : "BHS"
+        },
+        "country" : {
+		    "name"  : "Bahrain",
+		    "code"  : "973",
+		    "iso_1" : "BH",
+		    "iso_2" : "BHR"
+        },
+        "country" : {
+		    "name"  : "Bangladesh",
+		    "code"  : "880",
+		    "iso_1" : "BD",
+		    "iso_2" : "BGD"
+        },
+        "country" : {
+		    "name"  : "Barbados",
+		    "code"  : "1-246",
+		    "iso_1" : "BB",
+		    "iso_2" : "BRB"
+        },
+        "country" : {
+		    "name"  : "Belarus",
+		    "code"  : "375",
+		    "iso_1" : "BY",
+		    "iso_2" : "BLR"
+        },
+        "country" : {
+		    "name"  : "Belgium",
+		    "code"  : "32",
+		    "iso_1" : "BE",
+		    "iso_2" : "BEL"
+        },
+        "country" : {
+		    "name"  : "Belize",
+		    "code"  : "501",
+		    "iso_1" : "BZ",
+		    "iso_2" : "BLZ"
+        },
+        "country" : {
+		    "name"  : "Benin",
+		    "code"  : "229",
+		    "iso_1" : "BJ",
+		    "iso_2" : "BEN"
+        },
+        "country" : {
+		    "name"  : "Bermuda",
+		    "code"  : "1-441",
+		    "iso_1" : "BM",
+		    "iso_2" : "BMU"
+        },
+        "country" : {
+		    "name"  : "Bhutan",
+		    "code"  : "975",
+		    "iso_1" : "BT",
+		    "iso_2" : "BTN"
+        },
+        "country" : {
+		    "name"  : "Bolivia",
+		    "code"  : "591",
+		    "iso_1" : "BO",
+		    "iso_2" : "BOL"
+        },
+        "country" : {
+		    "name"  : "Bosnia and Herzegovina",
+		    "code"  : "387",
+		    "iso_1" : "BA",
+		    "iso_2" : "BIH"
+        },
+        "country" : {
+		    "name"  : "Botswana",
+		    "code"  : "267",
+		    "iso_1" : "BW",
+		    "iso_2" : "BWA"
+        },
+        "country" : {
+		    "name"  : "Brazil",
+		    "code"  : "55",
+		    "iso_1" : "BR",
+		    "iso_2" : "BRA"
+        },
+        "country" : {
+		    "name"  : "British Indian Ocean Territory",
+		    "code"  : "246",
+		    "iso_1" : "IO",
+		    "iso_2" : "IOT"
+        },
+        "country" : {
+		    "name"  : "British Virgin Islands",
+		    "code"  : "1-284",
+		    "iso_1" : "VG",
+		    "iso_2" : "VGB"
+        },
+        "country" : {
+		    "name"  : "Brunei",
+		    "code"  : "673",
+		    "iso_1" : "BN",
+		    "iso_2" : "BRN"
+        },
+        "country" : {
+		    "name"  : "Bulgaria",
+		    "code"  : "BG",
+		    "iso_2" : "BGR"
+        },
+        "country" : {
+		    "name"  : "Burkina Faso",
+		    "code"  : "226",
+		    "iso_1" : "BF",
+		    "iso_2" : "BFA"
+        },
+        "country" : {
+		    "name"  : "Myanmar",
+		    "code"  : "95",
+		    "iso_1" : "MM",
+		    "iso_2" : "MMR"
+        },
+        "country" : {
+		    "name"  : "Burundi",
+		    "code"  : "257",
+		    "iso_1" : "BI",
+		    "iso_2" : "BDI"
+        },
+        "country" : {
+		    "name"  : "Cambodia",
+		    "code"  : "855",
+		    "iso_1" : "KH",
+		    "iso_2" : "KHM"
+        },
+        "country" : {
+		    "name"  : "Cameroon",
+		    "code"  : "237",
+		    "iso_1" : "CM",
+		    "iso_2" : "CMR"
+        },
+        "country" : {
+		    "name"  : "Canada",
+		    "code"  : "1",
+		    "iso_1" : "CA",
+		    "iso_2" : "CAN"
+        },
+        "country" : {
+		    "name"  : "",
+		    "code"  : "",
+		    "iso_1" : "",
+		    "iso_2" : ""
+        },
+        "country" : {
+		    "name"  : "",
+		    "code"  : "",
+		    "iso_1" : "",
+		    "iso_2" : ""
+        },
+        "country" : {
+		    "name"  : "",
+		    "code"  : "",
+		    "iso_1" : "",
+		    "iso_2" : ""
+        },
+        "country" : {
+		    "name"  : "",
+		    "code"  : "",
+		    "iso_1" : "",
+		    "iso_2" : ""
+        },
+        "country" : {
+		    "name"  : "",
+		    "code"  : "",
+		    "iso_1" : "",
+		    "iso_2" : ""
+        },
+        "country" : {
+		    "name"  : "",
+		    "code"  : "",
+		    "iso_1" : "",
+		    "iso_2" : ""
+        },
+        "country" : {
+		    "name"  : "",
+		    "code"  : "",
+		    "iso_1" : "",
+		    "iso_2" : ""
+        },
+        "country" : {
+		    "name"  : "",
+		    "code"  : "",
+		    "iso_1" : "",
+		    "iso_2" : ""
+        },
+        "country" : {
+		    "name"  : "",
+		    "code"  : "",
+		    "iso_1" : "",
+		    "iso_2" : ""
+        },
+        "country" : {
+		    "name"  : "",
+		    "code"  : "",
+		    "iso_1" : "",
+		    "iso_2" : ""
+        },
+        "country" : {
+		    "name"  : "",
+		    "code"  : "",
+		    "iso_1" : "",
+		    "iso_2" : ""
+        },
+        "country" : {
+		    "name"  : "",
+		    "code"  : "",
+		    "iso_1" : "",
+		    "iso_2" : ""
+        },
+        "country" : {
+		    "name"  : "",
+		    "code"  : "",
+		    "iso_1" : "",
+		    "iso_2" : ""
+        },
+        "country" : {
+		    "name"  : "",
+		    "code"  : "",
+		    "iso_1" : "",
+		    "iso_2" : ""
+        },
+        "country" : {
+		    "name"  : "",
+		    "code"  : "",
+		    "iso_1" : "",
+		    "iso_2" : ""
+        },
+        "country" : {
+		    "name"  : "",
+		    "code"  : "",
+		    "iso_1" : "",
+		    "iso_2" : ""
+        },
+        "country" : {
+		    "name"  : "",
+		    "code"  : "",
+		    "iso_1" : "",
+		    "iso_2" : ""
+        },
+        "country" : {
+		    "name"  : "",
+		    "code"  : "",
+		    "iso_1" : "",
+		    "iso_2" : ""
+        },
+        "country" : {
+		    "name"  : "",
+		    "code"  : "",
+		    "iso_1" : "",
+		    "iso_2" : ""
+        },
+        "country" : {
+		    "name"  : "",
+		    "code"  : "",
+		    "iso_1" : "",
+		    "iso_2" : ""
+        },
+        "country" : {
+		    "name"  : "",
+		    "code"  : "",
+		    "iso_1" : "",
+		    "iso_2" : ""
+        },
+        "country" : {
+		    "name"  : "",
+		    "code"  : "",
+		    "iso_1" : "",
+		    "iso_2" : ""
+        },
+        "country" : {
+		    "name"  : "",
+		    "code"  : "",
+		    "iso_1" : "",
+		    "iso_2" : ""
+        },
+        "country" : {
+		    "name"  : "",
+		    "code"  : "",
+		    "iso_1" : "",
+		    "iso_2" : ""
+        },
+        "country" : {
+		    "name"  : "",
+		    "code"  : "",
+		    "iso_1" : "",
+		    "iso_2" : ""
+        },
+        "country" : {
+		    "name"  : "",
+		    "code"  : "",
+		    "iso_1" : "",
+		    "iso_2" : ""
+        },
+        "country" : {
+		    "name"  : "",
+		    "code"  : "",
+		    "iso_1" : "",
+		    "iso_2" : ""
+        }
+    }
+}
