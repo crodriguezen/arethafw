@@ -3,11 +3,38 @@ var afloader =  '<div class="af-loader"><div class="af-default-loader"></div><h5
 function afRunjs(target) {
 	var scriptElements = target.getElementsByTagName("script");
     var i;
-    for(i = 0; i < scriptElements.length; i++)
-        eval(scriptElements[i].innerHTML);    
+    for(i = 0; i < scriptElements.length; i++) {
+    	if (scriptElements[i].hasAttribute("data-af-ignore")) {
+        	if (scriptElements[i].getAttribute("data-af-ignore") === false) {
+        		eval(scriptElements[i].innerHTML);
+        	}
+    	} else {
+    		eval(scriptElements[i].innerHTML);
+    	}
+    }
 }
 
+const inputFileToBase64 = (e, d) => {
+	if (window.FileReader && window.Blob) {
+	    var f = e.target.files[0];
+	    var t = f.type;
+		var reader = new FileReader();
+		reader.onload = (function(theFile) {
+			return function(e) {
+			  var binaryData = e.target.result;
+			  var base64String = window.btoa(binaryData);
+			  aretha(d).data('base64String', "data:" + t + ";base64," + base64String);
+			};
+		})(f);
+		reader.readAsBinaryString(f);
+	}
+};
+
 const aretha = (q) => ({
+	count: () => {
+		el = document.querySelectorAll(q);
+		return el.length;
+	},
 
 	css: (attribute, value) => {
 		el = document.querySelectorAll(q);
@@ -69,6 +96,7 @@ const aretha = (q) => ({
 	  		if (typeof q === 'object') {
 	  			return aretha().targetize(q).getAttribute("data-" + data);
 	  		}
+
 			el = document.querySelectorAll(q);
 			if(el.length > 1) {
 				return "";
@@ -108,7 +136,7 @@ const aretha = (q) => ({
 
 	is: (tag) => {
 		if (typeof q === 'object') {
-  			return (aretha().targetize(q).tagName.toLowerCase() == tag || el[0].tagName.toUpperCase() == tag);
+  			return (aretha().targetize(q).tagName.toLowerCase() == tag || aretha().targetize(q).tagName.toUpperCase() == tag );
   		}
 		el = document.querySelectorAll(q);
 		if(el.length > 1) {
@@ -342,7 +370,18 @@ const aretha = (q) => ({
 				val = "";
 				nn = true, se = false;
 				switch(item.tagName.toLowerCase()) {
-					case 'input' : val = item.value; break;
+					case 'input' : 
+						if (item.type === "file") {
+							var f = item.files;
+							var l = f.length;
+							if (l == 1) {
+								val = item.getAttribute("data-base64String");
+							}
+						} else {
+							val = item.value;
+						}
+						break;
+					case 'textarea' : val = item.value; break;
 					case 'select': if (item.hasAttribute('data-af-senddata')) {
 								   	   switch(item.getAttribute('data-af-senddata')) {
 								   	   	   case "value": st = 1; break;
@@ -502,6 +541,13 @@ aretha().ready(function() {
 		        "notFoundPage"    :'arethafw/html/404.html',
 		        success: function(data) {
 		            aretha(_target).html(data);
+
+		            // Add Input File Handler
+		            if (aretha('.aretha-file').count() > 0) {
+						aretha('.aretha-file').on('change', function(e) {
+					        inputFileToBase64(e, "#" + aretha(e).attr('id'));
+					    });
+					}
 		        },
 		        notfound : function(xhr) {
 		        	aretha(_target).html(xhr);	
@@ -551,3 +597,46 @@ aretha().ready(function() {
 		}
 	});
 });
+
+
+function arethaDropdown(u, s, t, v, d = "Selecciona", dv = "") {
+	let dds = document.querySelectorAll(s);
+	let deo  = document.createElement('option');
+	deo.text = d;
+	deo.value = dv;
+
+	for (let i = 0; i < dds.length; i++) {
+		dds[i].add(deo);
+		dds[i].selectedIndex = 0;
+	}
+
+	const rq = new XMLHttpRequest();
+	rq.open('GET', u, true);
+	rq.onload = function() {
+		if (rq.status === 200) {
+	    	const json = JSON.parse(rq.responseText);
+	    	let option;
+	    	for (let i = 0; i < json.length; i++) {
+	      		option = document.createElement('option');
+	      		option.text  = json[i][t];
+	      		option.value = json[i][v];
+
+	      		for (let ii = 0; ii < dds.length; ii++) {
+					dds[ii].add(option);
+					if (dds[ii].hasAttribute("data-selected")) {
+						if (option.value == dds[ii].getAttribute("data-selected")) {
+							option.selected = "selected"
+						}
+					}
+				}
+	    	}
+	   	} else {
+	    	// Reached the server, but it returned an error
+	  	}   
+	}
+
+	rq.onerror = function() {
+		console.error('An error occurred fetching the JSON from ' + u);
+	};
+	rq.send();
+}
