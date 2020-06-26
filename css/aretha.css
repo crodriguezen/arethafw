@@ -1,3 +1,5 @@
+a *, button * { pointer-events: none; } /* disable click on inner elements and force click on <a> or <button> tag */
+
 .af-loader {
     width: 100%;
     height: 160px;
