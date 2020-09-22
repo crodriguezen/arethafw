@@ -377,6 +377,11 @@ const aretha = (q) => ({
 							if (l == 1) {
 								val = item.getAttribute("data-base64String");
 							}
+						} else if (item.type === "checkbox") {
+							val = "f";
+							if (item.checked == true) {
+								val = "t";
+							}
 						} else {
 							val = item.value;
 						}
@@ -514,6 +519,16 @@ function afVerifySession() {
     });
 }
 
+// Add Input File Handler
+function afLoadB64InputFiles() {
+    if (aretha('.aretha-file').count() > 0) {
+    	aretha('.aretha-file').off('change');
+		aretha('.aretha-file').on('change', function(e) {
+	        inputFileToBase64(e, "#" + aretha(e).attr('id'));
+	    });
+	}
+}
+
 aretha().ready(function() {
 
 	aretha('body').on('click', function(e) {
@@ -543,11 +558,8 @@ aretha().ready(function() {
 		            aretha(_target).html(data);
 
 		            // Add Input File Handler
-		            if (aretha('.aretha-file').count() > 0) {
-						aretha('.aretha-file').on('change', function(e) {
-					        inputFileToBase64(e, "#" + aretha(e).attr('id'));
-					    });
-					}
+		            afLoadB64InputFiles();
+
 		        },
 		        notfound : function(xhr) {
 		        	aretha(_target).html(xhr);	
@@ -615,13 +627,13 @@ function arethaDropdown(u, s, t, v, d = "Selecciona", dv = "") {
 	rq.onload = function() {
 		if (rq.status === 200) {
 	    	const json = JSON.parse(rq.responseText);
-	    	let option;
+	    	
 	    	for (let i = 0; i < json.length; i++) {
-	      		option = document.createElement('option');
-	      		option.text  = json[i][t];
-	      		option.value = json[i][v];
-
 	      		for (let ii = 0; ii < dds.length; ii++) {
+	      			var option = document.createElement('option');
+		      		option.text  = json[i][t];
+		      		option.value = json[i][v];
+
 					dds[ii].add(option);
 					if (dds[ii].hasAttribute("data-selected")) {
 						if (option.value == dds[ii].getAttribute("data-selected")) {
