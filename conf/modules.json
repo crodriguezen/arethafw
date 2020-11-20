@@ -1,8 +1,8 @@
 {
-    "modules" : {
-        "module" : {
-	    "name" : "",
-	    "path" : ""
+    "modules" : [
+    	{
+	    	"name" : "",
+	    	"path" : ""
         }
-    }
+    ]
 }
