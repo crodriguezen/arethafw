@@ -14,6 +14,17 @@ function afRunjs(target) {
     }
 }
 
+function afIncludeScriptFromJSON(t, j) {
+	var target = document.querySelectorAll(t);
+	var s;
+	console.log("Length: " + Object.keys(j).length);
+	for (i = 0; i < 1; i++) {
+		s = document.createElement("script");
+		s.src = j[i];
+		target[0].appendChild(s);
+	}
+}
+
 const inputFileToBase64 = (e, d) => {
 	if (window.FileReader && window.Blob) {
 	    var f = e.target.files[0];
