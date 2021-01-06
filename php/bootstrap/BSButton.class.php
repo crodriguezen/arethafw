@@ -7,6 +7,10 @@ class BSButton {
     private $id       = "";
     private $name     = "";
 
+    public function __construct($text = "", $color = "", $id = "", $name = "") {
+        $this->BSButton($text, $color, $id, $name);
+    }
+
     public function setType($type) {
         $this->type = $type;
     }

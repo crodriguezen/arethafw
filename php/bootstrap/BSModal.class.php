@@ -7,6 +7,8 @@ class BSModal {
     private static $isButtonConfirmDismiss = true;
     private static $isButtonExitDismiss = true;
 
+    private static $fade = "fade";
+
     public static function disableTabIndex() {
         BSModal::$isTabIndex = false;
     }
@@ -85,6 +87,10 @@ class BSModal {
         return $msize;
     }
 
+    public static function noFade() {
+        BSModal::$fade = "";
+    }
+
     public static function createEmpty($id, $title, $content = "", $positionh = "", $positionv = "", $size = "", $buttons = null) {
 
         $tabindex = "";
@@ -102,7 +108,7 @@ class BSModal {
         $msize = BSModal::checkSize($size);
 
         $modal  = '<!-- Begin Modal ' . $id . ' -->' . "\n";
-        $modal .= '<div class="modal ' . $posh . ' fade" id="' . $id . '"' . $tabindex;
+        $modal .= '<div class="modal ' . $posh . ' '. BSModal::$fade .'" id="' . $id . '"' . $tabindex;
         $modal .= 'role="dialog" aria-labelledby="" aria-hidden="true">' . "\n";
         $modal .= '    <div class="modal-dialog' . $posv . '' . $msize . '" role="document" id="' . $id . '-dialog">' . "\n";
         $modal .= '        <div class="modal-content" id="' . $id . '-content">' . "\n";
@@ -272,7 +278,7 @@ class BSModal {
         }
 
         $modal  = '<!-- Begin: Modal Confirmation ' . $id . ' -->' . "\n";
-        $modal .= '<div class="modal' . $posh . ' fade" id="' . $id . '" data-backdrop="static" tabindex="-1" ';
+        $modal .= '<div class="modal' . $posh . ' '. BSModal::$fade .'" id="' . $id . '" data-backdrop="static" tabindex="-1" ';
         $modal .= 'role="dialog" aria-hidden="true">' . "\n";
         $modal .= '    <div class="modal-dialog' . $posv . '" role="document">' . "\n";
         $modal .= '        <div class="modal-content">' . "\n";

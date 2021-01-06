@@ -219,6 +219,8 @@ spl_autoload_register(
 			$modules_json = "../admin/" . ARETHA_DIRNAME . "/conf/modules.json";
 		if (is_file("../../admin/" . ARETHA_DIRNAME . "/conf/modules.json")) 
 			$modules_json = "../../admin/" . ARETHA_DIRNAME . "/conf/modules.json";
+		if (is_file("app/" . ARETHA_DIRNAME . "/conf/modules.json")) 
+			$modules_json = "app/" . ARETHA_DIRNAME . "/conf/modules.json";
 		
 		if (is_file($modules_json)) {
 			$modules = json_decode(file_get_contents($modules_json));
@@ -442,19 +444,80 @@ class Aretha {
 	//===================================================================================================
 	//===================================================================================================
 
+    //===================================================================================================
+	//===================================================================================================	
+	// Front-end JS & CSS
+	//===================================================================================================
+	//===================================================================================================
+    public static function loadJS($path = "") {
+    	echo "<!-- Aretha JS -->" . "\n";
+    	echo '<script type="text/javascript" src="' . $path . ARETHA_DIRNAME . "/js/aretha.js" .'"></script>' . "\n";
+    	$pathJSON = $path . "arethafw/conf/front.json";
+    	if (is_file($pathJSON)) {
+    		$json = json_decode(file_get_contents($pathJSON));
+    		foreach ($json->plugins as $plugin) {
+				if ($plugin->active) {
+					echo "<!-- ". $plugin->dname . " version " . $plugin->version . " -->" . "\n";
+					foreach ($plugin->js as $js) {
+						echo '<script type="text/javascript" src="' . $path . ARETHA_DIRNAME . "/plugins/" . $plugin->name . "/js/" . $js . '"></script>' . "\n";	
+					}
+				}
+			}
+    	} else {
+    		echo "<!-- File: front.json NOT FOUND! -->";
+    	}
+    }
+
+    public static function loadCSS($path = "") {
+    	echo "<!-- Aretha CSS -->" . "\n";
+    	echo '<link rel="stylesheet" type="text/css" href="' . $path . ARETHA_DIRNAME . "/css/aretha.css" .'" />' . "\n";
+    	$pathJSON = $path . "arethafw/conf/front.json";
+    	if (is_file($pathJSON)) {
+    		$json = json_decode(file_get_contents($pathJSON));
+    		foreach ($json->plugins as $plugin) {
+				if ($plugin->active) {
+					echo "<!-- ". $plugin->dname . " version " . $plugin->version . " -->" . "\n";
+					foreach ($plugin->css as $css) {
+						echo '<link rel="stylesheet" type="text/css" href="' . $path . ARETHA_DIRNAME . "/plugins/" . $plugin->name . "/css/" . $css . '" />' . "\n";	
+					}
+				}
+			}
+    	} else {
+    		echo "<!-- File: front.json NOT FOUND! -->";
+    	}
+    }
     
 	//===================================================================================================
 	//===================================================================================================	
 	// PlugIns
 	//===================================================================================================
 	//===================================================================================================
+    // Ya no se usa para JS o CSS - Eliminar o Cambiar en siguiente versión
+    public static function loadPlugin($name, $async = true, $parameters = null) {
+    	$pluginPathI = ARETHA_DIRNAME . "/plugins/" . $name . "/" . $name . ".inc.php";
+    	$pluginPathE = "app/" . ARETHA_DIRNAME . "/plugins/" . $name . "/" . $name . ".inc.php";
+    	$load = false;
+    	$path = "";
+    	$a    = "true";
 
-    public static function loadPlugin($name, $parameters = null) {
-    	$pluginPath = ARETHA_DIRNAME . "/plugins/" . $name . "/" . $name . ".inc.php";
-    	if (is_file($pluginPath)) {
+    	if (!$async) {
+    		$a    = "false";
+    	}
+
+    	if (is_file($pluginPathI)) {
+    		$load = true;
+    		$pluginPath = $pluginPathI;
+    	}
+    	if (is_file($pluginPathE)) {
+    		$load = true;
+    		$pluginPath = $pluginPathE;
+    		$path = "app/";
+    	}
+
+    	if ($load) {
     		include_once $pluginPath;
     		Aretha::import("lib.AFPlugin");
-    		aretha\lib\AFPlugin::init($afPluginConf);
+    		aretha\lib\AFPlugin::init($afPluginConf, $path, $a);
     	}
     }
 
@@ -533,7 +596,7 @@ class Aretha {
 		$errorType = "";
 		foreach ($fields as $field) {
 			$fieldName = $prefix . $field['name'] . $suffix;
-			if (!isset($_REQUEST[$fieldName])) {
+			if (!isset($_REQUEST[$fieldName]) && $field['mandatory'] == "Y") {
 				$response['mandatory'][] = $fieldName;
 				$response['fieldok']     = false;
 				$errorType               = "undefined";
@@ -565,7 +628,8 @@ class Aretha {
 						}
 					}
 
-					// "mandatory_depends_on" => array(array("field" => "work_schedule_tipo", "values" => array("1")));
+					// "mandatory_depends_on" => array(array("field"  => "work_schedule_tipo", 
+					// 										 "values" => array("1")));
 					if ($field['mandatory'] == "D") {
 						if (isset($field['mandatory_depends_on'])) {
 							$depends = $field['mandatory_depends_on'];
@@ -589,6 +653,39 @@ class Aretha {
 
 					$isRangeError = false;
 					switch ($field['type']) {
+						case 'Decimal':
+							if (strlen($val) > 0) {
+								if (!is_numeric($val)) {
+									$response['type'][]  = array("name" => $fieldName, "detail" => "[Decimal]");
+									$response['fieldok'] = false;
+									$response['error_count']++;
+									$errorType           = "type";
+								} else {
+									$minValue = "N/A";
+									$maxValue = "N/A";
+									if (strlen($val) > 0) {
+										if (isset($field['min_value'])) {
+											$minValue = $field['min_value'];
+										}
+										if (isset($field['max_value'])) {
+											$maxValue = $field['max_value'];
+										}
+
+										if (isset($field['min_value']) && $val < $field['min_value']) {
+											$isRangeError = true;
+										}
+										if (isset($field['max_value']) && $val > $field['max_value']) {
+											$isRangeError = true;
+										}
+									}
+									if ($isRangeError) {
+										$response['range'][] = array("name" => $fieldName, "detail" => "[Min: " . $minValue . " Max: " . $maxValue . "]");
+										$response['fieldok'] = false;
+										$errorType           = "range";
+									}
+								}
+							}
+							break;
 						case 'Integer':
 							if (strlen($val) > 0) {
 								if (!is_numeric($val)) {

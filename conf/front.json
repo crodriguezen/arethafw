@@ -1,0 +1,18 @@
+{
+	"plugins" : 
+	[
+    	{
+	    	"active" : true,
+	    	"dname"  : "CalendarDiv",
+	    	"name"   : "calendardiv",
+	    	"version": "1.0",
+	    	"author" : "",
+	    	"css"    : [
+	    					"calendardiv.afp.css"
+	    				],
+	    	"js"     : [
+	    					"calendardiv.afp.js"
+	    				]
+        }
+    ]
+}

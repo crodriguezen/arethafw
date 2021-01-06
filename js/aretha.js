@@ -477,10 +477,11 @@ const aretha = (q) => ({
   		document.body.appendChild(s);
 	},
 
-	loadScripts: (a, c, h = false) => {
-	    var loader = function(src,handler) {
-	        var s = document.createElement("script");
-	        s.src = src;
+	loadScripts: (a, c, h = false, as = true) => {
+	    var loader = function(src, handler) {
+	        var s    = document.createElement("script");
+	        s.src    = src;
+	        s.async  = as;
 	        s.onload = s.onreadystatechange = function(){
 	            s.onreadystatechange = s.onload = null;
 	            handler();
