@@ -369,7 +369,7 @@ spl_autoload_register(
 		}
 		
 		// Error handler ===
-		if (!$found) {
+		if (!$found && Aretha::$checkClassNotFound) {
 			echo "ARETHA ERROR: Class << " . $theclass . " >> NOT FOUND";
 		}
 	}
@@ -385,6 +385,7 @@ class Aretha {
 	private static $entitiesPath       = "";
 
 	private static $aretha_global_path = "";
+	public static $checkClassNotFound  = true;
 
 	public function __construct() {}
 
@@ -392,6 +393,14 @@ class Aretha {
 		ini_set('display_errors', 1);
 		ini_set('display_startup_errors', 1);
 		error_reporting(E_ALL);
+	}
+	
+	public static function disabledClassNotFound() {
+		Aretha::$checkClassNotFound = false;
+	}
+
+	public static function enabledClassNotFound() {
+		Aretha::$checkClassNotFound = true;
 	}
 
 	public static function init($iniFile = "") {
